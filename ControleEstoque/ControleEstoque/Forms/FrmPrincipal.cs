@@ -94,5 +94,17 @@ namespace ControleEstoque
                 form.Focus();
             }
         }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = GetInstanceForm("BrowseClientes");
+            if(form == null) {
+                AbreFormulario(new BrowseClientes());
+            }
+            else {
+                form.Focus();
+            }
+
+        }
     }
 }

@@ -7,6 +7,12 @@ using System.Data.Entity.ModelConfiguration.Conventions;
     Add-Migration “nome_migrations” – cria um alteração no banco de dados, onde o “nome_migrations” é o nome que você irá dar para a atualização;
     Update-DataBase – aplica as alterações no banco de dados;
     Update-DataBase – script – gera um script com os comandos SQL para serem executados no banco de dados.
+
+    Se você estiver implantando seu aplicativo, você pode querer atualizar automaticamente o banco de dados (aplicando as migrações pendentes) quando o 
+    aplicativo for iniciado. Você pode fazer isso registrando o inicializador do banco de dados MigrateDatabaseToLatestVersion . 
+    Um inicializador de banco de dados simplesmente contém alguma lógica que é usada para garantir que o banco de dados esteja configurado corretamente. 
+    Essa lógica é executada pela primeira vez que o contexto é usado dentro do processo do aplicativo. 
+    Utilizado nesta aplicação na classe Program do projeto ControleEstoque
 **/
 namespace DataAccess
 {
@@ -28,6 +34,7 @@ namespace DataAccess
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Telefone> Telefones { get; set; }
         public DbSet<Cidade> Cidades { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -52,6 +59,7 @@ namespace DataAccess
             modelBuilder.Configurations.Add(new CidadeMap());
             modelBuilder.Configurations.Add(new EnderecoMap());
             modelBuilder.Configurations.Add(new TelefoneMap());
+            modelBuilder.Configurations.Add(new ClienteMap());
 
         }
     }

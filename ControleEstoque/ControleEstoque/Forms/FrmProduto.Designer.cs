@@ -563,6 +563,8 @@
             this.Controls.Add(this.lbdData);
             this.Controls.Add(this.tabControl);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(744, 546);
+            this.MinimumSize = new System.Drawing.Size(744, 546);
             this.Name = "FrmProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Produto";

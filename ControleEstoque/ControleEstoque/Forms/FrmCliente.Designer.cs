@@ -1,6 +1,6 @@
 ﻿namespace ControleEstoque.Forms
 {
-    partial class FrmFornecedor
+    partial class FrmCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -86,7 +86,7 @@
             this.tabPagePrincipal.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagePrincipal.Size = new System.Drawing.Size(640, 402);
             this.tabPagePrincipal.TabIndex = 0;
-            this.tabPagePrincipal.Text = "Dados Fornecedor";
+            this.tabPagePrincipal.Text = "Dados Cliente";
             this.tabPagePrincipal.UseVisualStyleBackColor = true;
             // 
             // grpPrincipal
@@ -111,18 +111,18 @@
             this.lblNomeRazao.AutoSize = true;
             this.lblNomeRazao.Location = new System.Drawing.Point(6, 20);
             this.lblNomeRazao.Name = "lblNomeRazao";
-            this.lblNomeRazao.Size = new System.Drawing.Size(38, 13);
+            this.lblNomeRazao.Size = new System.Drawing.Size(35, 13);
             this.lblNomeRazao.TabIndex = 1;
-            this.lblNomeRazao.Text = "Razão";
+            this.lblNomeRazao.Text = "Nome";
             // 
             // lblRgIe
             // 
             this.lblRgIe.AutoSize = true;
             this.lblRgIe.Location = new System.Drawing.Point(6, 155);
             this.lblRgIe.Name = "lblRgIe";
-            this.lblRgIe.Size = new System.Drawing.Size(17, 13);
+            this.lblRgIe.Size = new System.Drawing.Size(23, 13);
             this.lblRgIe.TabIndex = 7;
-            this.lblRgIe.Text = "IE";
+            this.lblRgIe.Text = "RG";
             // 
             // txtNomeRazao
             // 
@@ -153,18 +153,18 @@
             this.lblCpfCnpj.AutoSize = true;
             this.lblCpfCnpj.Location = new System.Drawing.Point(6, 110);
             this.lblCpfCnpj.Name = "lblCpfCnpj";
-            this.lblCpfCnpj.Size = new System.Drawing.Size(34, 13);
+            this.lblCpfCnpj.Size = new System.Drawing.Size(27, 13);
             this.lblCpfCnpj.TabIndex = 5;
-            this.lblCpfCnpj.Text = "CNPJ";
+            this.lblCpfCnpj.Text = "CPF";
             // 
             // lblApelidoFantasia
             // 
             this.lblApelidoFantasia.AutoSize = true;
             this.lblApelidoFantasia.Location = new System.Drawing.Point(6, 65);
             this.lblApelidoFantasia.Name = "lblApelidoFantasia";
-            this.lblApelidoFantasia.Size = new System.Drawing.Size(47, 13);
+            this.lblApelidoFantasia.Size = new System.Drawing.Size(66, 13);
             this.lblApelidoFantasia.TabIndex = 3;
-            this.lblApelidoFantasia.Text = "Fantasia";
+            this.lblApelidoFantasia.Text = "Sobre Nome";
             // 
             // txtCpfCnpj
             // 
@@ -364,7 +364,7 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // FrmFornecedor
+            // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -375,9 +375,9 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(685, 541);
             this.MinimumSize = new System.Drawing.Size(685, 541);
-            this.Name = "FrmFornecedor";
+            this.Name = "FrmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro Fornecedor";
+            this.Text = "Cadastro Clientes";
             this.tabControl.ResumeLayout(false);
             this.tabPagePrincipal.ResumeLayout(false);
             this.grpPrincipal.ResumeLayout(false);

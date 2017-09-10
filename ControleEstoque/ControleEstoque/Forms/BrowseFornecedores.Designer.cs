@@ -78,18 +78,18 @@
             // 
             // headerDescricao
             // 
-            this.headerDescricao.Text = "NomeRazão";
-            this.headerDescricao.Width = 189;
+            this.headerDescricao.Text = "Razão";
+            this.headerDescricao.Width = 231;
             // 
             // headerFantasia
             // 
             this.headerFantasia.Text = "Fantasia";
-            this.headerFantasia.Width = 162;
+            this.headerFantasia.Width = 205;
             // 
             // columnCpfCnpj
             // 
-            this.columnCpfCnpj.Text = "CpfCnpj";
-            this.columnCpfCnpj.Width = 131;
+            this.columnCpfCnpj.Text = "CNPJ";
+            this.columnCpfCnpj.Width = 140;
             // 
             // btnEditar
             // 
@@ -153,6 +153,7 @@
             // 
             // btnDeletar
             // 
+            this.btnDeletar.Enabled = false;
             this.btnDeletar.Location = new System.Drawing.Point(427, 367);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(75, 23);

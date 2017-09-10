@@ -1,8 +1,7 @@
 ﻿using DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data.Entity;
+using DataAccess.Migrations;
 using System.Windows.Forms;
 
 namespace ControleEstoque
@@ -15,11 +14,11 @@ namespace ControleEstoque
         [STAThread]
         static void Main()
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Configuration>());
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmPrincipal());
         }
-
-     
     }
 }

@@ -11,25 +11,25 @@ using System.Windows.Forms;
 
 namespace ControleEstoque.Forms
 {
-    public partial class FrmFornecedor : Form
+    public partial class FrmCliente: Form
     {
         public bool IsUpdate { get; set; } = false;
-        public Fornecedor fornecedor { get; set; }
+        public Cliente cliente { get; set; }
         public List<EnderecoDTO> listEndereco = new List<EnderecoDTO>();
         public List<TelefoneDTO> listFone = new List<TelefoneDTO>();
         public DataContext ctx = new DataContext();
 
-        public FrmFornecedor()
+        public FrmCliente()
         {
             InitializeComponent();
         }
 
-        public FrmFornecedor(int idFornecedor)
+        public FrmCliente(int idCliente)
         {
             try {
                 InitializeComponent();
-                PreencherControles(idFornecedor);
-                GetInstanceWorker().RunWorkerAsync(idFornecedor);
+                PreencherControles(idCliente);
+                GetInstanceWorker().RunWorkerAsync(idCliente);
                 this.IsUpdate = true;
             } catch(Exception ex) {
                 ex.Message.ShowError();
@@ -39,11 +39,11 @@ namespace ControleEstoque.Forms
 
         private void PreencherControles(int id)
         {
-            fornecedor = FornecedorBusiness.GetFornecedor(ctx, id);
-            txtApelidoFantasia.Text = fornecedor.Pessoa.ApelidoFantasia;
-            txtNomeRazao.Text = fornecedor.Pessoa.NomeRazao;
-            txtCpfCnpj.Text = fornecedor.Pessoa.CpfCnpj;
-            txtRgIe.Text = fornecedor.Pessoa.RgIe;
+            cliente = ClienteBusiness.GetCliente(ctx, id);
+            txtApelidoFantasia.Text = cliente.Pessoa.ApelidoFantasia;
+            txtNomeRazao.Text = cliente.Pessoa.NomeRazao;
+            txtCpfCnpj.Text = cliente.Pessoa.CpfCnpj;
+            txtRgIe.Text = cliente.Pessoa.RgIe;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -79,17 +79,17 @@ namespace ControleEstoque.Forms
             pessoa.CpfCnpj = txtCpfCnpj.Text;
             pessoa.RgIe = txtRgIe.Text;
             pessoa.TipoPessoa = txtCpfCnpj.Text.Length > 11 ? "J" : "F";
-            FornecedorBusiness.Salvar(ctx, pessoa, listEndereco, listFone);
+            ClienteBusiness.Salvar(ctx, pessoa, listEndereco, listFone);
         }
 
         private void Atualizar()
         {
-            fornecedor.Pessoa.NomeRazao = txtNomeRazao.Text;
-            fornecedor.Pessoa.ApelidoFantasia = txtApelidoFantasia.Text;
-            fornecedor.Pessoa.CpfCnpj = txtCpfCnpj.Text;
-            fornecedor.Pessoa.TipoPessoa = txtCpfCnpj.Text.Length > 11 ? "J" : "F";
-            fornecedor.Pessoa.RgIe = txtRgIe.Text;
-            FornecedorBusiness.Atualizar(ctx, fornecedor.Pessoa, listEndereco, listFone);
+            cliente.Pessoa.NomeRazao = txtNomeRazao.Text;
+            cliente.Pessoa.ApelidoFantasia = txtApelidoFantasia.Text;
+            cliente.Pessoa.CpfCnpj = txtCpfCnpj.Text;
+            cliente.Pessoa.TipoPessoa = txtCpfCnpj.Text.Length > 11 ? "J" : "F";
+            cliente.Pessoa.RgIe = txtRgIe.Text;
+            ClienteBusiness.Atualizar(ctx, cliente.Pessoa, listEndereco, listFone);
         }
 
         private bool IsCamposValidos()
@@ -155,9 +155,9 @@ namespace ControleEstoque.Forms
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             try {
-                var pessoa = PessoaBusiness.GetPessoa(ctx, fornecedor.Pessoa.PessoaId);
+                var pessoa = PessoaBusiness.GetPessoa(ctx, cliente.Pessoa.PessoaId);
                 listEndereco = EnderecoBusiness.GetAllEnderecos(ctx, pessoa);
-                listFone = TelefoneBusiness.GetAllFones(ctx, pessoa);
+                listFone  = TelefoneBusiness.GetAllFones(ctx, pessoa);
             } catch(Exception ex) {
                 ex.Message.ShowError();
             }
@@ -165,7 +165,7 @@ namespace ControleEstoque.Forms
 
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            try {
+            try {                
                 PreencherListViewEndereco();
                 PreencherListViewFones();
             } catch(Exception ex) {

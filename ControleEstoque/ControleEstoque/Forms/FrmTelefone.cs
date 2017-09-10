@@ -74,5 +74,16 @@ namespace ControleEstoque.Forms
             }
             return true;
         }
+
+        private void txtDigit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try {
+                var ch = e.KeyChar;
+                if(!Char.IsDigit(ch) && ch != 8) {
+                    e.Handled = true;
+                }
+            } catch(Exception) {
+            }
+        }
     }
 }

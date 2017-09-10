@@ -1,6 +1,6 @@
 ﻿namespace ControleEstoque.Forms
 {
-    partial class BrowseTamanhos
+    partial class BrowseClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,8 @@
             this.listView = new System.Windows.Forms.ListView();
             this.headerId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.headerDescricao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.headerSobreNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCpfCnpj = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.txtBusca = new System.Windows.Forms.TextBox();
@@ -55,7 +57,9 @@
             // 
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.headerId,
-            this.headerDescricao});
+            this.headerDescricao,
+            this.headerSobreNome,
+            this.columnCpfCnpj});
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
             this.listView.Location = new System.Drawing.Point(12, 41);
@@ -74,8 +78,18 @@
             // 
             // headerDescricao
             // 
-            this.headerDescricao.Text = "Descrição";
-            this.headerDescricao.Width = 574;
+            this.headerDescricao.Text = "Nome";
+            this.headerDescricao.Width = 180;
+            // 
+            // headerSobreNome
+            // 
+            this.headerSobreNome.Text = "Sobre Nome";
+            this.headerSobreNome.Width = 270;
+            // 
+            // columnCpfCnpj
+            // 
+            this.columnCpfCnpj.Text = "CPF";
+            this.columnCpfCnpj.Width = 131;
             // 
             // btnEditar
             // 
@@ -148,7 +162,7 @@
             this.btnDeletar.UseVisualStyleBackColor = true;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
-            // BrowseTamanhos
+            // BrowseClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,9 +176,9 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.btnCadastrar);
-            this.Name = "BrowseTamanhos";
+            this.Name = "BrowseClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tamanhos";
+            this.Text = "Clientes";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +197,7 @@
         private System.Windows.Forms.RadioButton rdCodigo;
         private System.Windows.Forms.RadioButton rdDescricao;
         private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.ColumnHeader headerSobreNome;
+        private System.Windows.Forms.ColumnHeader columnCpfCnpj;
     }
 }

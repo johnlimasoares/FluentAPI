@@ -1,4 +1,5 @@
-﻿using ControleEstoque.Utils;
+﻿using Business;
+using ControleEstoque.Utils;
 using DataAccess.Repositories;
 using Domain.Entities;
 using System;
@@ -20,7 +21,7 @@ namespace ControleEstoque.Forms
 
         private List<Fornecedor> GetListaFornecedores(Func<Fornecedor, bool> where = null)
         {
-            return new FornecedorRepository().GetAll(where).ToList();
+            return  FornecedorBusiness.GetAll(where).ToList();
         }
 
         private void PreencherListView(List<Fornecedor> list)

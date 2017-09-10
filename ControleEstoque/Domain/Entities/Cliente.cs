@@ -2,11 +2,11 @@
 
 namespace Domain.Entities
 {
-    public class Fornecedor : IEntity
+    public class Cliente : IEntity
     {
-        public int FornecedorId { get; set; }
+        public int ClienteId { get; set; }
         public Pessoa Pessoa { get; set; }
-                       
+                 
         public string GetDescricao()
         {
             return Pessoa.NomeRazao;
@@ -14,7 +14,7 @@ namespace Domain.Entities
 
         public int GetId()
         {
-            return FornecedorId;
+            return ClienteId;
         }
     }
 }

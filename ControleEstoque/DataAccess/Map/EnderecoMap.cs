@@ -11,7 +11,7 @@ namespace DataAccess.Map
             Property(x => x.Logradouro).HasMaxLength(100).IsRequired();
             Property(x => x.Numero).HasMaxLength(15).IsRequired();
             Property(x => x.TipoEndereco).HasMaxLength(20).IsRequired();
-
+            Property(x => x.CEP).HasMaxLength(8);
             HasRequired(x => x.Pessoa)
                .WithMany()
                .Map(m => m.MapKey("PessoaId"));

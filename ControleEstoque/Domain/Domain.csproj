@@ -46,6 +46,7 @@
     <Compile Include="Entities\Cidade.cs" />
     <Compile Include="Entities\Cor.cs" />
     <Compile Include="Entities\Endereco.cs" />
+    <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Fornecedor.cs" />
     <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\IEntity.cs" />

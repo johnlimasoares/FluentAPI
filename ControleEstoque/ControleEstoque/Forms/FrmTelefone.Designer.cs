@@ -71,6 +71,7 @@
             // 
             // cbTipoFone
             // 
+            this.cbTipoFone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoFone.FormattingEnabled = true;
             this.cbTipoFone.Items.AddRange(new object[] {
             "Celular",
@@ -95,10 +96,11 @@
             // txtNumero
             // 
             this.txtNumero.Location = new System.Drawing.Point(6, 35);
-            this.txtNumero.MaxLength = 50;
+            this.txtNumero.MaxLength = 12;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(112, 20);
             this.txtNumero.TabIndex = 2;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDigit_KeyPress);
             // 
             // btnCancelar
             // 

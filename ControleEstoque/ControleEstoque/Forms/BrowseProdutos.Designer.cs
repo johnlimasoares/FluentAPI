@@ -447,7 +447,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCadastrar);
             this.Name = "BrowseProdutos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Produtos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -13,10 +13,7 @@ namespace DataAccess.Map
             Property(x => x.ApelidoFantasia).HasMaxLength(50).IsRequired();
             Property(x => x.CpfCnpj).HasMaxLength(14).IsRequired();
             Property(x => x.RgIe).HasMaxLength(20).IsRequired();
-            Property(x => x.TipoPessoa).HasMaxLength(1).IsRequired();
-
-            
-                
+            Property(x => x.TipoPessoa).HasMaxLength(1).IsRequired();    
         }
     }
 }

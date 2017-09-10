@@ -142,6 +142,7 @@
             // 
             // cbTipoEndereo
             // 
+            this.cbTipoEndereo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoEndereo.FormattingEnabled = true;
             this.cbTipoEndereo.Items.AddRange(new object[] {
             "Residência",
@@ -165,7 +166,7 @@
             // txtNumero
             // 
             this.txtNumero.Location = new System.Drawing.Point(6, 119);
-            this.txtNumero.MaxLength = 50;
+            this.txtNumero.MaxLength = 10;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(112, 20);
             this.txtNumero.TabIndex = 2;
@@ -182,7 +183,7 @@
             // txtCEP
             // 
             this.txtCEP.Location = new System.Drawing.Point(6, 80);
-            this.txtCEP.MaxLength = 50;
+            this.txtCEP.MaxLength = 8;
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(112, 20);
             this.txtCEP.TabIndex = 1;
@@ -199,7 +200,7 @@
             // txtLogradouro
             // 
             this.txtLogradouro.Location = new System.Drawing.Point(6, 41);
-            this.txtLogradouro.MaxLength = 50;
+            this.txtLogradouro.MaxLength = 100;
             this.txtLogradouro.Name = "txtLogradouro";
             this.txtLogradouro.Size = new System.Drawing.Size(374, 20);
             this.txtLogradouro.TabIndex = 0;

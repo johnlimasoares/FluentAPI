@@ -139,6 +139,7 @@
             // 
             // btnDeletar
             // 
+            this.btnDeletar.Enabled = false;
             this.btnDeletar.Location = new System.Drawing.Point(427, 367);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(75, 23);

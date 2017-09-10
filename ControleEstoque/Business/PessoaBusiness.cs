@@ -1,10 +1,7 @@
 ﻿using DataAccess;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business
 {
@@ -14,6 +11,7 @@ namespace Business
         {
             return ctx.Set<Pessoa>()
                 .Where(x => x.PessoaId == pessoaId)
+                .AsNoTracking()
                 .FirstOrDefault();
         }
     }

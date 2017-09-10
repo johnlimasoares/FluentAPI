@@ -1,17 +1,20 @@
 ﻿using Business;
 using ControleEstoque.Utils;
+using DataAccess.Repositories;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ControleEstoque.Forms
 {
-    public partial class BrowseFornecedores : Form
+    public partial class BrowseClientes : Form
     {
-
-        public BrowseFornecedores()
+       
+        public BrowseClientes()
         {
             try {
                 InitializeComponent();
@@ -23,19 +26,19 @@ namespace ControleEstoque.Forms
 
         }
 
-        private List<Fornecedor> GetListaFornecedores(Func<Fornecedor, bool> where = null)
+        private List<Cliente> GetListaClientes(Func<Cliente, bool> where = null)
         {
-            return FornecedorBusiness.GetAll(where);
+            return ClienteBusiness.GetAll(where);
         }
 
-        private void PreencherListView(List<Fornecedor> listaFornecedors)
+        private void PreencherListView(List<Cliente> listaClientes)
         {
             listView.Items.Clear();
-            foreach(var Fornecedor in listaFornecedors) {
-                var listViewItem = new ListViewItem(Fornecedor.FornecedorId.ToString());
-                listViewItem.SubItems.Add(Fornecedor.Pessoa.NomeRazao);
-                listViewItem.SubItems.Add(Fornecedor.Pessoa.ApelidoFantasia);
-                listViewItem.SubItems.Add(Fornecedor.Pessoa.CpfCnpj);
+            foreach(var cliente in listaClientes) {
+                var listViewItem = new ListViewItem(cliente.ClienteId.ToString());
+                listViewItem.SubItems.Add(cliente.Pessoa.NomeRazao);
+                listViewItem.SubItems.Add(cliente.Pessoa.ApelidoFantasia);
+                listViewItem.SubItems.Add(cliente.Pessoa.CpfCnpj);
                 listView.Items.Add(listViewItem);
             }
         }
@@ -43,7 +46,7 @@ namespace ControleEstoque.Forms
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             try {
-                e.Result = GetListaFornecedores((Func<Fornecedor, bool>)e.Argument);
+                e.Result = GetListaClientes((Func<Cliente, bool>)e.Argument);
             } catch(Exception ex) {
                 ex.Message.ShowError();
             }
@@ -52,7 +55,7 @@ namespace ControleEstoque.Forms
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             try {
-                PreencherListView((List<Fornecedor>)e.Result);
+                PreencherListView((List<Cliente>)e.Result);
             } catch(Exception ex) {
 
                 ex.Message.ShowError();
@@ -84,9 +87,9 @@ namespace ControleEstoque.Forms
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try {
-                var result = new FrmFornecedor().ShowDialog();
+                var result = new FrmCliente().ShowDialog();
                 if(result == DialogResult.OK) {
-                    PreencherListView(GetListaFornecedores());
+                    PreencherListView(GetListaClientes());
                 }
             } catch(Exception ex) {
                 ex.Message.ShowError();
@@ -106,9 +109,9 @@ namespace ControleEstoque.Forms
                     return;
 
                 var id = GetCodigoItemSelecionado();
-                var result = new FrmFornecedor(id).ShowDialog();
+                var result = new FrmCliente(id).ShowDialog();
                 if(result == DialogResult.OK) {
-                    PreencherListView(GetListaFornecedores());
+                    PreencherListView(GetListaClientes());
                 }
 
             } catch(Exception ex) {
@@ -119,16 +122,15 @@ namespace ControleEstoque.Forms
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             try {
-                Func<Fornecedor, bool> where = null;
+                Func<Cliente, bool> where = null;
                 if(!string.IsNullOrEmpty(txtBusca.Text)) {
                     if(rdDescricao.Checked) {
-                        where = delegate (Fornecedor m) {
-                            return m.Pessoa.NomeRazao.ToUpper().Contains(txtBusca.Text.ToUpper())
-                            || m.Pessoa.ApelidoFantasia.ToUpper().Contains(txtBusca.Text.ToUpper());
-                        };
+                        where = delegate (Cliente m) {
+                            return m.Pessoa.NomeRazao.ToUpper().Contains(txtBusca.Text.ToUpper()) 
+                            || m.Pessoa.ApelidoFantasia.ToUpper().Contains(txtBusca.Text.ToUpper()); };
                     }
                     else {
-                        where = delegate (Fornecedor m) { return m.FornecedorId.ToString() == txtBusca.Text; };
+                        where = delegate (Cliente m) { return m.ClienteId.ToString() == txtBusca.Text; };
                     }
                 }
                 GetInstanceWorker().RunWorkerAsync(where);
@@ -146,10 +148,9 @@ namespace ControleEstoque.Forms
 
                 if(MessageBox.Show("Deseja Realmente excluir?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                     var id = GetCodigoItemSelecionado();
-                    FornecedorBusiness.Delete(id);
+                    ClienteBusiness.Delete(id);
                     GetInstanceWorker().RunWorkerAsync();
                 }
-
             } catch(Exception ex) {
                 ex.Message.ShowError();
             }
