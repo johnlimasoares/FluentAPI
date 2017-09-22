@@ -17,7 +17,7 @@ namespace ControleEstoque.Forms
         {
             try {
                 InitializeComponent();
-                comboBox.SelectedIndex = 0;
+                comboBox.SelectedIndex = 1;
                 GetInstanceWorker().RunWorkerAsync(GetWhere());
             } catch(Exception ex) {
                 ex.Message.ShowError();
@@ -44,10 +44,17 @@ namespace ControleEstoque.Forms
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             try {
-                PreencherListView((List<Produto>)e.Result);
+                var listProdutos = (List<Produto>)e.Result;
+                PreencherListView(listProdutos);
+                SetLabelTotalProdutos(listProdutos.Count);
             } catch(Exception ex) {
                 ex.Message.ShowError();
             }
+        }
+
+        private void SetLabelTotalProdutos(int count)
+        {
+            lblTotalProdutos.Text = $"{count} Produto(s) encontrado(s)";
         }
 
         private Expression<Func<Produto, bool>> GetWhere()

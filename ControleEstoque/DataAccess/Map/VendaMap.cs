@@ -9,9 +9,9 @@ namespace DataAccess.Map
         {
             ToTable("Venda");
 
-            HasRequired(x => x.Produto)
+            HasRequired(x => x.Cliente)
                .WithMany()
-               .Map(m => m.MapKey("ProdutoId"));
+               .Map(m => m.MapKey("ClienteId"));
         }
        
     }

@@ -26,7 +26,7 @@ namespace DataAccess
         public DbSet<Produto> Produtos{ get; set; }
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Grupo> Grupos { get; set; }
-        public DbSet<Venda> SaidaMercadorias { get; set; }
+        public DbSet<Venda> Vendas { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Tamanho> Tamanhos { get; set; }
@@ -35,6 +35,7 @@ namespace DataAccess
         public DbSet<Telefone> Telefones { get; set; }
         public DbSet<Cidade> Cidades { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -47,6 +48,9 @@ namespace DataAccess
                    .Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<string>()
                   .Configure(p => p.HasMaxLength(500));
+            modelBuilder.Properties<decimal>()
+                .Configure(c => c.HasPrecision(12, 4));
+
 
             modelBuilder.Configurations.Add(new ProdutoMap());
             modelBuilder.Configurations.Add(new MarcaMap());

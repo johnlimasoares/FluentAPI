@@ -64,6 +64,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkInativos = new System.Windows.Forms.CheckBox();
             this.lblTamanho = new System.Windows.Forms.Label();
+            this.lblTotalProdutos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,7 +145,7 @@
             // columnDescricao
             // 
             this.columnDescricao.Text = "Descrição";
-            this.columnDescricao.Width = 388;
+            this.columnDescricao.Width = 260;
             // 
             // columnReferencia
             // 
@@ -435,11 +436,25 @@
             this.lblTamanho.Text = "Tamanho";
             this.lblTamanho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblTotalProdutos
+            // 
+            this.lblTotalProdutos.AutoSize = true;
+            this.lblTotalProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProdutos.Location = new System.Drawing.Point(7, 525);
+            this.lblTotalProdutos.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTotalProdutos.Name = "lblTotalProdutos";
+            this.lblTotalProdutos.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTotalProdutos.Size = new System.Drawing.Size(0, 15);
+            this.lblTotalProdutos.TabIndex = 41;
+            this.lblTotalProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // BrowseProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 556);
+            this.Controls.Add(this.lblTotalProdutos);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.btnInativar);
@@ -452,6 +467,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -491,5 +507,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTamanho;
         private System.Windows.Forms.CheckBox chkInativos;
+        private System.Windows.Forms.Label lblTotalProdutos;
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="Entities\Fornecedor.cs" />
     <Compile Include="Entities\Grupo.cs" />
     <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\ItemVenda.cs" />
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\Pessoa.cs" />
     <Compile Include="Entities\Telefone.cs" />

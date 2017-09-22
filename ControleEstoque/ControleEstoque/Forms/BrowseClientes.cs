@@ -127,7 +127,9 @@ namespace ControleEstoque.Forms
                     if(rdDescricao.Checked) {
                         where = delegate (Cliente m) {
                             return m.Pessoa.NomeRazao.ToUpper().Contains(txtBusca.Text.ToUpper()) 
-                            || m.Pessoa.ApelidoFantasia.ToUpper().Contains(txtBusca.Text.ToUpper()); };
+                            || m.Pessoa.ApelidoFantasia.ToUpper().Contains(txtBusca.Text.ToUpper())
+                            || m.Pessoa.CpfCnpj.ToUpper().Contains(txtBusca.Text.ToUpper())
+                            ; };
                     }
                     else {
                         where = delegate (Cliente m) { return m.ClienteId.ToString() == txtBusca.Text; };
