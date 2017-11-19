@@ -106,5 +106,16 @@ namespace ControleEstoque
             }
 
         }
+
+        private void municípioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = GetInstanceForm("BrowseMunicipio");
+            if(form == null) {
+                AbreFormulario(new BrowseMunicipio());
+            }
+            else {
+                form.Focus();
+            }
+        }
     }
 }

@@ -10,7 +10,6 @@ namespace Domain.Entities
         public string CpfCnpj { get; set; }
         public string RgIe { get; set; }
         public string TipoPessoa { get; set; }
-
-       
+        public string Observacoes { get; set; }
     }
 }

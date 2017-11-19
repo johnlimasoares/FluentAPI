@@ -6,7 +6,7 @@ namespace Domain.Entities
     {
         public int CidadeId { get; set; }
         public string Nome { get; set; }
-
+        public string UF { get; set; }
         public string GetDescricao()
         {
             return Nome;

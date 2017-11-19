@@ -26,7 +26,7 @@ namespace ControleEstoque.Forms
 
         private BackgroundWorker GetInstanceWorker()
         {
-            var worker = new BackgroundWorker();
+            var worker = new BackgroundWorker();            
             worker.DoWork += Worker_DoWork;
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
             return worker;

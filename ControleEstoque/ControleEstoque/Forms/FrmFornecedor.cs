@@ -44,6 +44,7 @@ namespace ControleEstoque.Forms
             txtNomeRazao.Text = fornecedor.Pessoa.NomeRazao;
             txtCpfCnpj.Text = fornecedor.Pessoa.CpfCnpj;
             txtRgIe.Text = fornecedor.Pessoa.RgIe;
+            txtObs.Text = fornecedor.Pessoa.Observacoes;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -79,6 +80,7 @@ namespace ControleEstoque.Forms
             pessoa.CpfCnpj = txtCpfCnpj.Text;
             pessoa.RgIe = txtRgIe.Text;
             pessoa.TipoPessoa = txtCpfCnpj.Text.Length > 11 ? "J" : "F";
+            pessoa.Observacoes = txtObs.Text;
             FornecedorBusiness.Salvar(ctx, pessoa, listEndereco, listFone);
         }
 
@@ -89,6 +91,7 @@ namespace ControleEstoque.Forms
             fornecedor.Pessoa.CpfCnpj = txtCpfCnpj.Text;
             fornecedor.Pessoa.TipoPessoa = txtCpfCnpj.Text.Length > 11 ? "J" : "F";
             fornecedor.Pessoa.RgIe = txtRgIe.Text;
+            fornecedor.Pessoa.Observacoes = txtObs.Text;
             FornecedorBusiness.Atualizar(ctx, fornecedor.Pessoa, listEndereco, listFone);
         }
 

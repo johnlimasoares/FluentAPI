@@ -65,6 +65,12 @@
     <Compile Include="Forms\BrowseClientes.Designer.cs">
       <DependentUpon>BrowseClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BrowseMunicipio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BrowseMunicipio.Designer.cs">
+      <DependentUpon>BrowseMunicipio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BrowseFornecedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,12 @@
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmMunicipio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMunicipio.Designer.cs">
+      <DependentUpon>FrmMunicipio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmEndereco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +236,9 @@
     <EmbeddedResource Include="Forms\BrowseClientes.resx">
       <DependentUpon>BrowseClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BrowseMunicipio.resx">
+      <DependentUpon>BrowseMunicipio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BrowseFornecedores.resx">
       <DependentUpon>BrowseFornecedores.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMunicipio.resx">
+      <DependentUpon>FrmMunicipio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEndereco.resx">
       <DependentUpon>FrmEndereco.cs</DependentUpon>

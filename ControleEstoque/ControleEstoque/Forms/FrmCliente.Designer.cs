@@ -59,11 +59,13 @@
             this.tabPageObservacao = new System.Windows.Forms.TabPage();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtObs = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabPagePrincipal.SuspendLayout();
             this.grpPrincipal.SuspendLayout();
             this.tabPageEndereco.SuspendLayout();
             this.tabPageTelefone.SuspendLayout();
+            this.tabPageObservacao.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -336,6 +338,7 @@
             // 
             // tabPageObservacao
             // 
+            this.tabPageObservacao.Controls.Add(this.txtObs);
             this.tabPageObservacao.Location = new System.Drawing.Point(4, 22);
             this.tabPageObservacao.Name = "tabPageObservacao";
             this.tabPageObservacao.Padding = new System.Windows.Forms.Padding(3);
@@ -364,6 +367,14 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtObs
+            // 
+            this.txtObs.Location = new System.Drawing.Point(6, 18);
+            this.txtObs.Multiline = true;
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(628, 378);
+            this.txtObs.TabIndex = 0;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,6 +395,8 @@
             this.grpPrincipal.PerformLayout();
             this.tabPageEndereco.ResumeLayout(false);
             this.tabPageTelefone.ResumeLayout(false);
+            this.tabPageObservacao.ResumeLayout(false);
+            this.tabPageObservacao.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -422,5 +435,6 @@
         private System.Windows.Forms.ColumnHeader columnFone;
         private System.Windows.Forms.ColumnHeader columnTipo;
         private System.Windows.Forms.Button btnNovoFone;
+        private System.Windows.Forms.TextBox txtObs;
     }
 }
